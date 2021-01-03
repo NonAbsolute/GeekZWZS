@@ -1,5 +1,7 @@
 #### GeekZWZS
 
+<a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg"></a>
+
 #### 简介
 GeekZWZS.cn网站模板
 
