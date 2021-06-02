@@ -1,0 +1,116 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/sweetalert-dev.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/sweetalert.css">
+    <title>GeekZWZS.cn|关于</title>
+  </head>
+  <body style="background-color: #F5F5F5;">
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm"style="background-color: #FFE4C4;">
+    <a class="navbar-brand" href="/">GeekZWZS.cn</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/">首页</a>
+      <a class="nav-item nav-link" href="/static/JuanZhu.html">捐助</a>
+      <a class="nav-item nav-link active" href="/static/GuanYu.html">关于我们<span class="sr-only">(current)</span></a>
+      <!--
+      <a class="nav-item nav-link disabled" href="#"></a>
+      -->
+      <span class="navbar-text" id="MingYan"style="color: #007bff;">
+      {{ BianHuan }}
+      </span>
+      </div>
+      </div>
+      </nav>
+      <div class="card shadow">
+      <div class="card-body">
+      <blockquote class="blockquote text-center">
+      <p class="mb-0">这世上根本没有什么捷径可走，创业也根本不是功成名就的最佳途径。</p>
+      </blockquote>
+      <blockquote class="blockquote text-right">
+      <footer class="blockquote-footer">阿里云首席安全科学家「吴翰清」</footer>
+      </blockquote>
+      </div>
+      </div>
+      <div class="card-group">
+      <div class="card shadow">
+      <img class="card-img-top" src="/static/img/QQQ.png" alt="QQ群">
+      <div class="card-body">
+      <h5 class="card-title">FJD安全团队&蛛网之殇</h5>
+      <p class="card-text">本群用于技术学习交流，秉承开放、平等、协作、快速、分享的互联网精神</p>
+      <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=PKiZYMdZ1DmgkYOJqHAML1ETMGB5-tJ_&amp;jump_from=webapi" class="btn btn-primary">加入我们</a>
+      </div>
+      </div>
+      <div class="card shadow">
+      <img class="card-img-top" src="/static/img/GitHub.jpeg" alt="QQ群">
+      <div class="card-body">
+      <h5 class="card-title">GitHub</h5>
+      <p class="card-text">蛛网之殇项目仍在开发中，欢迎提出宝贵意见以及技术支援！</p>
+      <a target="_blank" href="https://github.com/securitySmallSpider/GeekZWZS" class="btn btn-primary">技术支援</a>
+      </div>
+      </div>
+      <!--<div class="card shadow">有一个属性style="width: 18rem;"导致移动端界面错乱-->
+      <div class="card shadow">
+      <img class="card-img-top" src="/static/img/DYSC.png" alt="订阅&收藏">
+      <div class="card-body">
+      <h5 class="card-title">订阅&收藏</h5>
+      <p class="card-text">您可以收藏本站或FJD安全团队，以接收最新消息、文章。</p>
+      <a href="javascript:;" class="btn btn-primary"onclick="AddFavorite('https://geekzwzs.cn','GeekZWZS.cn——蛛网之殇');">收藏本站</a>
+      <a href="javascript:;" class="btn btn-primary"onclick="AddFavorite('https://fjd.geekzwzs.cn','FJD.GeekZWZS.cn——FJD安全团队');">收藏FJD安全团队</a>
+      </div>
+      </div>
+      </div>
+      <script>
+      var MingYan = new Vue({
+      el: '#MingYan',
+      data: {
+      BianHuan: '写这段代码的时候，只有上帝和我知道它是干嘛的 ,现在，只有上帝知道'
+      }
+      })
+      var BianHuanCache = 0;
+      var BianHuanArr=new Array();
+      BianHuanArr[0]="编程就像做爱，你得为一个错误提供一辈子的支持。";
+      BianHuanArr[1]="废话少说，放码过来!";
+      BianHuanArr[2]="在没有错误日志的情况下诊断任何问题，无异于闭眼开车";
+      BianHuanArr[3]="写这段代码的时候，只有上帝和我知道它是干嘛的 ,现在，只有上帝知道";
+      setInterval(function() {
+      MingYan.BianHuan = BianHuanArr[BianHuanCache];
+      BianHuanCache++;
+      if(BianHuanCache == 4){
+      BianHuanCache = 0;
+      }
+      },3000)
+      function AddFavorite(url,title){
+      try{
+          if(document.all){
+              window.external.AddFavorite(url,title);
+          }
+          else if(window.sidebar && window.sidebar.addPanel){
+              window.sidebar.addPanel(title,url,"");
+          }
+          else if(window.external){
+              window.external.AddFavorite(url,title);
+          }
+          else if(window.opera && window.print){
+              return true;
+          }
+      }
+      catch(e){
+	      sweetAlert("加入收藏失败", url + "\n请手动复制添加！","error");
+　　   }
+      }
+      </script>
+    <div class="fixed-bottom"style="text-align:center;background-color: #F5F5F5;">
+Copyright © 2020-现在 GeekZWZS.cn Powered by <a target="_blank" href="https://cn.vuejs.org" title="Vue.js">Vue.js</a>&<a target="_blank" href="http://www.thinkphp.cn" title="ThinkPHP">ThinkPHP</a>|<a rel="nofollow" target="_blank" href="http://beian.miit.gov.cn" title="鲁ICP备2020042720号">鲁ICP备2020042720号</a></div>
+  </div>
+  </body>
+</html>

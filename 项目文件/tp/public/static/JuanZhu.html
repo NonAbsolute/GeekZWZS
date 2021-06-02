@@ -1,0 +1,85 @@
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <title>GeekZWZS.cn|捐助</title>
+  </head>
+  <body style="background-color: #F5F5F5;">
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm"style="background-color: #FFE4C4;">
+    <a class="navbar-brand" href="/">GeekZWZS.cn</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+      <a class="nav-item nav-link" href="/">首页</a>
+      <a class="nav-item nav-link active" href="/static/JuanZhu.html">捐助<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/static/GuanYu.html">关于我们</a>
+      <!--
+      <a class="nav-item nav-link disabled" href="#"></a>
+      -->
+      <span class="navbar-text" id="MingYan"style="color: #007bff;">
+      {{ BianHuan }}
+      </span>
+      </div>
+      </div>
+      </nav>
+      <div class="card shadow">
+      <div class="card-body">
+      <p v-html="JuanZhu" class="lead" id="ZhengWen"style="text-align:center;">
+      {{JuanZhu}}
+      </p>
+      </div>
+      </div>
+      <script>
+      var MingYan = new Vue({
+      el: '#MingYan',
+      data: {
+      BianHuan: '写这段代码的时候，只有上帝和我知道它是干嘛的 ,现在，只有上帝知道'
+      }
+      })
+      var BianHuanCache = 0;
+      var BianHuanArr=new Array();
+      BianHuanArr[0]="编程就像做爱，你得为一个错误提供一辈子的支持。";
+      BianHuanArr[1]="废话少说，放码过来!";
+      BianHuanArr[2]="在没有错误日志的情况下诊断任何问题，无异于闭眼开车";
+      BianHuanArr[3]="写这段代码的时候，只有上帝和我知道它是干嘛的 ,现在，只有上帝知道";
+      setInterval(function() {
+      MingYan.BianHuan = BianHuanArr[BianHuanCache];
+      BianHuanCache++;
+      if(BianHuanCache == 4){
+      BianHuanCache = 0;
+      }
+      },3000)
+      var ZhengWen = new Vue({
+      el: '#ZhengWen',
+      data: {
+	      JuanZhu: '<h3>我们并不缺钱<small class="text-muted">但多多益善😊</small></h3>\
+	      <p style="text-align: left;">如果您想给予我们帮助，可以通过以下几种方式开始：</p>\
+	      <h4 style="text-align: left;">工作:</h4>\
+	      <p class="text-justify">我们团队有数十人，目前仍有两名成员(包括我在内)，没有工作。\
+	      我们俩是学生，坐标济南；如果您有好的岗位随时可以联系！</p>\
+	      <p class="text-justify"><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">联系</button></p>\
+	      <div class="collapse" id="collapseExample"><div class="card card-body">他擅长渗透测试，我擅长Linux系统运维；联系我们发给您详细的简历！邮箱：x17615848429@sina.com 手机&微信号：17615848429 QQ：2966681280</div></div>\
+	      <h4 style="text-align: left;">一次性赞助:</h4>\
+	      <p class="text-justify">这不是必须的，但可以显著提高加入我们团队的机会！一起探索网络安全、渗透测试、开发；众人拾柴火焰高，如果您愿意，可以通过下方的联系方式联系我们：</p>\
+	      <p class="text-justify"><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">赞助&交流</button></p>\
+              <div class="collapse" id="collapseExample2"><div class="card card-body"><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">微信</button>\
+	      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content">\
+	      <img style="max-width: 30%;"src="/static/img/wx.png" class="rounded mx-auto d-block" alt="微信"></div></div></div>\
+	      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg2">支付宝</button>\
+	      <div class="modal fade bd-example-modal-lg2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg"><div class="modal-content">\
+	      <img style="max-width: 30%;"src="/static/img/zfb.jpg" class="rounded mx-auto d-block" alt="支付宝"></div></div></div></div>'
+      }
+      })
+      </script>
+    <div class="fixed-bottom"style="text-align:center;background-color: #F5F5F5;">
+Copyright © 2020-现在 GeekZWZS.cn Powered by <a target="_blank" href="https://cn.vuejs.org" title="Vue.js">Vue.js</a>&<a target="_blank" href="http://www.thinkphp.cn" title="ThinkPHP">ThinkPHP</a>|<a rel="nofollow" target="_blank" href="http://beian.miit.gov.cn" title="鲁ICP备2020042720号">鲁ICP备2020042720号</a></div>
+  </div>
+  </body>
+</html>
